@@ -1,8 +1,9 @@
 import React from 'react'
+import { ProvedorTema } from './components/ProvedorTema'
 
 const App = () => {
   return (
-    <div>App</div>
+    <ProvedorTema>App</ProvedorTema>
   )
 }
 
