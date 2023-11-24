@@ -5,10 +5,17 @@ import { Col, Container, Row } from "react-grid-system";
 
 import { Cabecalho } from "../componentes/Cabecalho";
 import { Link } from "../componentes/Link";
+import { ListaInline } from "../componentes/Lista/ListaInline";
+import { ItemListaInline } from "../componentes/Lista/ItemListaInline";
+import { Tipografia } from "../componentes/Tipografia";
 import { Rodape } from "../componentes/Rodape";
 
 
 import { FreelandoLogo } from "../componentes/Icones/FreelandoLogo";
+import { IconeWhatsApp } from "../componentes/Icones/IconeWhatsApp";
+import { IconeTwitch } from "../componentes/Icones/IconeTwitch";
+import { IconeInstagram } from "../componentes/Icones/IconeInstagram";
+import { IconeTwitter } from "../componentes/Icones/IconeTwitter";
 
 const LayoutBase = ({ children }) => {
     return (

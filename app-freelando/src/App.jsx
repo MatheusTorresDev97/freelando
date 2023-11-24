@@ -1,5 +1,6 @@
 import React from 'react'
-import { ProvedorTema } from './components/ProvedorTema'
+import { RouterProvider } from "react-router-dom";
+import { ProvedorTema } from './componentes/ProvedorTema'
 import { Estilos } from "./componentes/EstilosGlobais/Estilos";
 import { router } from "./router";
 
