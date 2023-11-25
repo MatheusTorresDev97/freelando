@@ -1,23 +1,23 @@
 import React from "react";
-
-import { Outlet, Link as RouterLink } from "react-router-dom"
-import { Col, Container, Row } from "react-grid-system";
-
 import { Cabecalho } from "../componentes/Cabecalho";
 import { Link } from "../componentes/Link";
+import { Col, Container, Row } from "react-grid-system";
+import { FreelandoLogo } from "../componentes/Icones/FreelandoLogo";
+import { Rodape } from "../componentes/Rodape";
+import { Tipografia } from "../componentes/Tipografia";
+import { Link as RouterLink } from "react-router-dom"
 import { ListaInline } from "../componentes/Lista/ListaInline";
 import { ItemListaInline } from "../componentes/Lista/ItemListaInline";
-import { Tipografia } from "../componentes/Tipografia";
-import { Rodape } from "../componentes/Rodape";
-
-
-import { FreelandoLogo } from "../componentes/Icones/FreelandoLogo";
 import { IconeWhatsApp } from "../componentes/Icones/IconeWhatsApp";
 import { IconeTwitch } from "../componentes/Icones/IconeTwitch";
 import { IconeInstagram } from "../componentes/Icones/IconeInstagram";
 import { IconeTwitter } from "../componentes/Icones/IconeTwitter";
+import { Outlet } from "react-router-dom";
+import { useSessaoUsuarioContext } from "../contexto/SessaoUsuario"
 
 const LayoutBase = ({ children }) => {
+    const { usuarioEstaLogado, logout } = useSessaoUsuarioContext()
+
     return (
         <>
             <Cabecalho>
@@ -27,14 +27,22 @@ const LayoutBase = ({ children }) => {
                             <FreelandoLogo />
                         </Col>
                         <Col style={{ textAlign: 'right' }}>
-                            <RouterLink>
-                                <Link>Login</Link>
-                            </RouterLink>
+                            {
+                                usuarioEstaLogado ?
+                                    <Link onClick={logout}>
+                                        Logout
+                                    </Link>
+                                    :
+                                    <RouterLink to="/login">
+                                        <Link>Login</Link>
+                                    </RouterLink>
+                            }
                         </Col>
                     </Row>
                 </Container>
             </Cabecalho>
             <Outlet />
+            {children}
             <Rodape>
                 <Container>
                     <Row align="center">
